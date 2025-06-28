@@ -1,10 +1,12 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
+import cors from 'cors'
 import nodemailer from 'nodemailer'
 import { generateOtp } from './generateOtp.js'
 import OTP from './model.js'
 
+app.use(cors())
 const app = express()
 const PORT = process.env.PORT || 5000
 app.use(express.json())
@@ -35,7 +37,6 @@ app.post("/auth/request-otp", async (req, res) => {
 
         res.status(200).json({ message : 'OTP sent successfully'})
     } catch (error) {
-        console.error("❌ Email sending error:", error);
         res.status(500).json({
             error : 'Failed to sent OTP'
         })
