@@ -6,8 +6,8 @@ import nodemailer from 'nodemailer'
 import { generateOtp } from './generateOtp.js'
 import OTP from './model.js'
 
-app.use(cors())
 const app = express()
+app.use(cors())
 const PORT = process.env.PORT || 5000
 app.use(express.json())
 
