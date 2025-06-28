@@ -1,4 +1,3 @@
-
 export function generateOtp(){
     let otp = ""
     for(let i=0;i<6;i++){
